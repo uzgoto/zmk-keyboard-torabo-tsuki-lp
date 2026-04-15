@@ -10,60 +10,60 @@
         bt_clear {
             bindings = <&bt BT_CLR>;
             key-positions = <28 29>;
-            layers = <1>;
+            layers = <2>;
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        default-0 {
+        default {
             bindings = <
 &none  &none      &none         &none         &none       &none                                            &none                  &none  &none      &none          &none      &none
 &none  &kp Q      &kp W         &kp E         &kp R       &kp T                                            &kp Y                  &kp U  &kp I      &kp O          &kp P      &none
 &none  &kp A      &kp S         &kp D         &kp F       &kp G               &none           &none        &kp H                  &kp J  &kp K      &kp L          &kp SEMI   &none
-&none  &kp Z      &kp X         &kp C         &kp V       &kp B               &lt 1 DEL       &lt 0 BSPC   &kp N                  &kp M  &kp COMMA  &kp DOT        &kp SLASH  &none
+&none  &kp Z      &kp X         &kp C         &kp V       &kp B               &lt 1 DEL       &lt 4 BSPC   &kp N                  &kp M  &kp COMMA  &kp DOT        &kp SLASH  &none
 &none  &kp LCTRL  &kp LEFT_ALT  &kp LEFT_WIN  &kp ESCAPE  &mt LEFT_SHIFT TAB  &lt 2 INT_KANA  &lt 3 SPACE  &mt RIGHT_SHIFT ENTER  &none  &none      &kp RIGHT_ALT  &kp RCTRL  &none
             >;
         };
 
-        sign-1 {
+        mouse {
             bindings = <
-&trans  &trans     &trans  &trans    &trans      &none                        &none      &trans    &trans            &trans             &trans         &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &none   &none   &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none      &none      &trans     &trans  &trans
+            >;
+        };
+
+        sign {
+            bindings = <
+&trans  &trans     &trans  &trans    &trans      &trans                       &trans     &trans    &trans            &trans             &trans         &trans
 &trans  &kp EXCL   &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT                  &kp CARET  &kp AMPS  &kp LPAR          &kp RPAR           &kp MINUS      &trans
 &trans  &kp GRAVE  &none   &none     &none       &none        &none   &none   &none      &none     &kp LBRC          &kp RBRC           &kp EQUAL      &trans
 &trans  &none      &none   &none     &none       &none        &trans  &trans  &none      &none     &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH  &trans
-&none   &trans     &trans  &trans    &trans      &trans       &trans  &trans  &trans     &none     &none             &trans             &trans         &none
+&trans  &trans     &trans  &trans    &trans      &trans       &trans  &trans  &trans     &none     &none             &trans             &trans         &trans
             >;
         };
 
-        fn-and-num-2 {
+        fn-and-num {
             bindings = <
-&none  &none   &none    &none    &none    &none                       &none            &trans     &trans     &trans     &trans        &trans
-&none  &kp F1  &kp F2   &kp F3   &kp F4   &trans                      &kp KP_MULTIPLY  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_PLUS   &trans
-&none  &kp F5  &kp F6   &kp F7   &kp F8   &trans      &none   &none   &kp KP_DIVIDE    &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_MINUS  &trans
-&none  &kp F9  &kp F10  &kp F11  &kp F12  &kp KP_DOT  &trans  &trans  &kp KP_N0        &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_EQUAL  &trans
-&none  &trans  &trans   &trans   &trans   &trans      &trans  &trans  &trans           &none      &none      &trans     &trans        &none
+&trans  &trans  &trans   &trans   &trans   &trans                  &trans           &trans     &trans     &trans     &trans        &trans
+&trans  &kp F1  &kp F2   &kp F3   &kp F4   &none                   &kp KP_MULTIPLY  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_PLUS   &trans
+&trans  &kp F5  &kp F6   &kp F7   &kp F8   &none   &none   &none   &kp KP_DIVIDE    &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_MINUS  &trans
+&trans  &kp F9  &kp F10  &kp F11  &kp F12  &none   &trans  &trans  &kp KP_N0        &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT    &trans
+&trans  &trans  &trans   &trans   &trans   &trans  &trans  &trans  &trans           &none      &none      &trans     &trans        &trans
             >;
         };
 
-        cursor-3 {
+        cursor {
             bindings = <
-&none  &none   &none     &none          &none    &none                   &none   &none           &none           &none            &none   &none
-&none  &trans  &trans    &kp PAGE_UP    &trans   &trans                  &trans  &trans          &kp UP_ARROW    &trans           &trans  &none
-&none  &trans  &kp HOME  &kp PAGE_DOWN  &kp END  &trans  &none   &none   &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans  &none
-&none  &trans  &trans    &trans         &trans   &trans  &trans  &trans  &trans  &trans          &trans          &trans           &trans  &none
-&none  &trans  &trans    &trans         &trans   &trans  &trans  &trans  &trans  &none           &none           &trans           &trans  &none
-            >;
-        };
-
-        mouse-4 {
-            bindings = <
-&none  &none   &none   &none   &none   &none                   &trans  &trans     &trans     &trans     &trans  &trans
-&none  &trans  &trans  &trans  &trans  &trans                  &trans  &trans     &trans     &trans     &trans  &trans
-&none  &trans  &trans  &trans  &trans  &trans  &none   &none   &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
-&none  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans
-&none  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none      &none      &trans     &trans  &trans
+&trans  &trans  &trans    &trans         &trans   &trans                  &trans  &trans          &trans          &trans           &trans  &trans
+&trans  &none   &none     &kp PAGE_UP    &none    &none                   &none   &none           &kp UP_ARROW    &none            &none   &trans
+&trans  &none   &kp HOME  &kp PAGE_DOWN  &kp END  &none   &none   &none   &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none   &trans
+&trans  &none   &none     &none          &none    &none   &trans  &trans  &none   &none           &none           &none            &none   &trans
+&trans  &trans  &trans    &trans         &trans   &trans  &trans  &trans  &trans  &none           &none           &trans           &trans  &trans
             >;
         };
     };
