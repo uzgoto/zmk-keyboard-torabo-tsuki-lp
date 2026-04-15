@@ -16,3 +16,12 @@
         power-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)>;
     };
 };
+
+/ {
+    /* Add mouse layer */
+    input_listener {
+        compatible = "zmk,input-listener";
+        device = <&pointing_device>;
+        input-processors = <&zip_temp_layer 1 500>;
+    };
+};
