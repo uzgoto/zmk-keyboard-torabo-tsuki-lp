@@ -22,6 +22,6 @@
     input_listener {
         compatible = "zmk,input-listener";
         device = <&pointing_device>;
-        input-processors = <&zip_temp_layer 1 800>;
+        input-processors = <&zip_temp_layer 1 5000>;
     };
 };
