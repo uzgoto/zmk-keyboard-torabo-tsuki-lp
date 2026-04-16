@@ -32,7 +32,7 @@
 &trans  &trans  &trans     &trans     &trans     &trans                  &trans  &trans     &trans     &trans     &trans  &trans
 &trans  &trans  &trans     &trans     &trans     &trans                  &trans  &trans     &trans     &trans     &trans  &trans
 &trans  &trans  &mkp RCLK  &mkp MCLK  &mkp LCLK  &trans  &none   &none   &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
-&trans  &trans  &trans     &trans     &trans     &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans     &trans     &mo 5      &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans
 &trans  &trans  &trans     &trans     &trans     &trans  &trans  &trans  &trans  &none      &none      &trans     &trans  &trans
             >;
         };
@@ -64,6 +64,16 @@
 &trans  &none   &kp HOME  &kp PAGE_DOWN  &kp END  &none   &none   &none   &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none   &trans
 &trans  &none   &none     &none          &none    &none   &trans  &trans  &none   &none           &none           &none            &none   &trans
 &trans  &trans  &trans    &trans         &trans   &trans  &trans  &trans  &trans  &none           &none           &trans           &trans  &trans
+            >;
+        };
+
+        scroll {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
