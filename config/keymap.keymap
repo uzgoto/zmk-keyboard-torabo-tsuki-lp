@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
 / {
@@ -19,11 +20,11 @@
 
         default {
             bindings = <
-&none  &none             &none                     &none                        &none                  &none                                             &none                        &none  &none      &none           &none            &none
-&none  &kp Q             &kp W                     &kp E                        &kp R                  &kp T                                             &kp Y                        &kp U  &kp I      &kp O           &kp P            &none
-&none  &kp A             &kp S                     &kp D                        &kp F                  &kp G               &none            &none        &kp H                        &kp J  &kp K      &kp L           &kp MINUS        &none
-&none  &kp Z             &kp X                     &kp C                        &kp V                  &kp B               &kp LANGUAGE_2   &lt 4 LANG1  &kp N                        &kp M  &kp COMMA  &kp DOT         &kp SEMI         &none
-&none  &mt LCTRL ESCAPE  &mt LEFT_ALT PRINTSCREEN  &mt LC(LEFT_SHIFT) LEFT_WIN  &mt LA(LSHIFT) DELETE  &mt LEFT_SHIFT TAB  &lt 2 BACKSPACE  &lt 3 SPACE  &mt RIGHT_SHIFT PRINTSCREEN  &none  &none      &mt RALT SLASH  &mt RCTRL ENTER  &none
+&none  &none             &none                     &none           &none                  &none                                              &none                        &none  &none      &none           &none            &none
+&none  &kp Q             &kp W                     &kp E           &kp R                  &kp T                                              &kp Y                        &kp U  &kp I      &kp O           &kp P            &none
+&none  &kp A             &kp S                     &kp D           &kp F                  &kp G               &none             &none        &kp H                        &kp J  &kp K      &kp L           &kp MINUS        &none
+&none  &kp Z             &kp X                     &kp C           &kp V                  &kp B               &lt 0 LANGUAGE_2  &lt 4 LANG1  &kp N                        &kp M  &kp COMMA  &kp DOT         &kp SEMI         &none
+&none  &mt LCTRL ESCAPE  &mt LEFT_ALT PRINTSCREEN  &lt 6 LEFT_WIN  &mt LC(LSHIFT) DELETE  &mt LEFT_SHIFT TAB  &lt 2 BACKSPACE   &lt 3 SPACE  &mt RIGHT_SHIFT PRINTSCREEN  &none  &none      &mt RALT SLASH  &mt RCTRL ENTER  &none
             >;
         };
 
@@ -74,6 +75,16 @@
 &none  &trans  &trans  &trans  &trans  &trans  &none   &none   &trans  &trans  &trans  &trans  &trans  &none
 &none  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none
 &none  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none
+            >;
+        };
+
+        control {
+            bindings = <
+&none  &none   &none   &none   &none       &none                         &none         &none         &none         &none         &none         &none
+&none  &trans  &trans  &trans  &trans      &sys_reset                    &bt BT_SEL 4  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none
+&none  &trans  &trans  &trans  &trans      &trans        &none   &none   &trans        &trans        &trans        &trans        &trans        &none
+&none  &trans  &trans  &trans  &bt BT_CLR  &out OUT_TOG  &trans  &trans  &trans        &trans        &trans        &trans        &bootloader   &none
+&none  &trans  &trans  &trans  &trans      &trans        &trans  &trans  &trans        &trans        &trans        &trans        &trans        &none
             >;
         };
     };
