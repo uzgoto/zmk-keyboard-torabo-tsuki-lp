@@ -1,16 +1,16 @@
 / {
-    sc_y: sc_y {
+    sc_scaler: sc_scaler {
         compatible = "zmk,input-processor-scaling";
         #input-processor-cells = <0>;
         input-scale = <80>;
     };
 
-    ib_sc: ib_sc {
+    ib_handler: ib_handler {
         compatible = "zmk,input-processor-trigger-report";
         #input-processor-cells = <0>;
         device = <&pointing_device>;
         type = "scroll";
-        y-reports = <&sc_y>;
+        y-reports = <&sc_scaler>;
     };
 
     input-listener {
@@ -22,7 +22,7 @@
 
         /* Scroll layer */
         layer-input-processors = <
-            <5 &ib_sc>
+            <5 &ib_handler>
         >;
     };
 };
