@@ -1,3 +1,4 @@
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 &spi0 {
     status = "okay";
@@ -18,46 +19,31 @@
 };
 
 / {
-    sc_scaler: sc_scaler {
-        compatible = "zmk,input-processor-scaling";
-        #input-processor-cells = <0>;
-        input-scale = <80>;
-    };
-
-    ib_handler: ib_handler {
-        compatible = "zmk,input-processor-trigger-report";
-        #input-processor-cells = <0>;
-        device = <&pointing_device>;
-        type = "scroll";
-        y-reports = <&sc_scaler>;
-    };
-
-    input-listener {
-        compatible = "zmk,input-listener";
-        device = <&pointing_device>;
-
-        /* Auto mouse layer */
-        input-processors = <&zip_temp_layer 1 1200>;
-
-        /* Scroll layer */
-        layer-input-processors = <
-            <5 &ib_handler>
-        >;
+    input_processors {
+        zip_scroll_x_scaler: zip_scroll_x_scaler {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_HWHEEL>;
+            track-remainders;
+        };
     };
 };
 
-// / {
-//     /* Listener settings to control the behavior of the trackball */
-//     input_listener {
-//         compatible = "zmk,input-listener";
-//         device = <&pointing_device>;
-//         input-processors =
-//             /* Scroll mode (layer 5)*/
-//             <&zip_temp_layer 5 0>, // Effective only while on Layer 5 (no delay)
-//             <&zip_scroll_scaler 1 2>, // Scroll sensitivity setting (making the denominator larger slows it down)
-// 
-//             /* Auto mouse layer (layer 1) */
-//             <&zip_temp_layer 1 1200>; //Once it starts moving, go to Layer 1; stop and recover in 1 second.
-// 
-//     };
-// };
+/ {
+    input_listener {
+        compatible = "zmk,input-listener";
+        device = <&pointing_device>;
+        /* Auto mouse */
+        input-processors = <&zip_temp_layer 1 1200>;
+
+        scroller {
+            layers = <5>;
+            input-processors = <
+                &zip_xy_to_scroll_mapper
+                &zip_scroll_x_scaler 0 1
+                &zip_scroll_scaler 1 2 // Scroll sensitivity setting (making the denominator larger slows it down)
+            >;
+        };
+    };
+};
