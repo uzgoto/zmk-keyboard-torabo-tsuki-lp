@@ -1,3 +1,36 @@
+#define L_AUTO_MOUSE 1
+#define L_SCROLL     5
+#define AM_TIMEOUT   1200
+#define SC_SPEED     800
+
+/ {
+    sc_y: sc_y {
+        compatible = "zmk,input-processor-scaling";
+        #input-processor-cells = <0>;
+        input-scale = <SC_SPEED>;
+    };
+
+    ib_sc: ib_sc {
+        compatible = "zmk,input-processor-trigger-report";
+        #input-processor-cells = <0>;
+        device = <&pointing_device>;
+        type = "scroll";
+        y-reports = <&sc_y>;
+    };
+
+    input-listener {
+        compatible = "zmk,input-listener";
+        device = <&pointing_device>;
+
+        /* Auto mouse layer */
+        input-processors = <&zip_temp_layer L_AUTO_MOUSE AM_TIMEOUT>;
+
+        /* Scroll layer */
+        layer-input-processors = <
+            <L_SCROLL &ib_sc>
+        >;
+    };
+};
 
 &spi0 {
     status = "okay";
@@ -17,18 +50,18 @@
     };
 };
 
-/ {
-    /* Listener settings to control the behavior of the trackball */
-    input_listener {
-        compatible = "zmk,input-listener";
-        device = <&pointing_device>;
-        input-processors =
-            /* Scroll mode (layer 5)*/
-//            <&zip_temp_layer 5 0>, // Effective only while on Layer 5 (no delay)
-//            <&zip_scroll_scaler 1 2>, // Scroll sensitivity setting (making the denominator larger slows it down)
-
-            /* Auto mouse layer (layer 1) */
-            <&zip_temp_layer 1 1200>; //Once it starts moving, go to Layer 1; stop and recover in 1 second.
-
-    };
-};
+// / {
+//     /* Listener settings to control the behavior of the trackball */
+//     input_listener {
+//         compatible = "zmk,input-listener";
+//         device = <&pointing_device>;
+//         input-processors =
+//             /* Scroll mode (layer 5)*/
+//             <&zip_temp_layer 5 0>, // Effective only while on Layer 5 (no delay)
+//             <&zip_scroll_scaler 1 2>, // Scroll sensitivity setting (making the denominator larger slows it down)
+// 
+//             /* Auto mouse layer (layer 1) */
+//             <&zip_temp_layer 1 1200>; //Once it starts moving, go to Layer 1; stop and recover in 1 second.
+// 
+//     };
+// };
