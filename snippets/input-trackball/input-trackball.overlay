@@ -1,13 +1,8 @@
-#define L_AUTO_MOUSE 1
-#define L_SCROLL     5
-#define AM_TIMEOUT   1200
-#define SC_SPEED     800
-
 / {
     sc_y: sc_y {
         compatible = "zmk,input-processor-scaling";
         #input-processor-cells = <0>;
-        input-scale = <SC_SPEED>;
+        input-scale = <80>;
     };
 
     ib_sc: ib_sc {
@@ -23,11 +18,11 @@
         device = <&pointing_device>;
 
         /* Auto mouse layer */
-        input-processors = <&zip_temp_layer L_AUTO_MOUSE AM_TIMEOUT>;
+        input-processors = <&zip_temp_layer 1 1200>;
 
         /* Scroll layer */
         layer-input-processors = <
-            <L_SCROLL &ib_sc>
+            <5 &ib_sc>
         >;
     };
 };
