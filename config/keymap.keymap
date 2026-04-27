@@ -38,23 +38,23 @@
             >;
         };
 
-        fn-and-nums {
+        numbers-fns {
             bindings = <
-&none  &none   &none   &none    &none    &none                    &none      &none   &none   &none   &none         &none
-&none  &trans  &kp F2  &kp F3   &kp F4   &kp F5                   &kp PLUS   &kp N7  &kp N8  &kp N9  &kp ASTERISK  &none
-&none  &trans  &kp F6  &kp F7   &kp F8   &kp F9   &none   &none   &kp MINUS  &kp N4  &kp N5  &kp N6  &kp SLASH     &none
-&none  &trans  &trans  &kp F10  &kp F11  &kp F12  &trans  &trans  &kp COLON  &kp N1  &kp N2  &kp N3  &kp EQUAL     &none
-&none  &trans  &trans  &trans   &trans   &trans   &trans  &trans  &trans     &none   &none   &kp N0  &kp DOT       &none
+&none  &none   &none   &none    &none    &none                    &none         &none   &none   &none   &none      &none
+&none  &trans  &kp F2  &kp F3   &kp F4   &kp F5                   &kp SLASH     &kp N7  &kp N8  &kp N9  &kp MINUS  &none
+&none  &trans  &kp F6  &kp F7   &kp F8   &kp F9   &none   &none   &kp ASTERISK  &kp N4  &kp N5  &kp N6  &kp PLUS   &none
+&none  &trans  &trans  &kp F10  &kp F11  &kp F12  &trans  &trans  &kp COLON     &kp N1  &kp N2  &kp N3  &kp EQUAL  &none
+&none  &trans  &trans  &trans   &trans   &trans   &trans  &trans  &trans        &none   &none   &kp N0  &kp DOT    &none
             >;
         };
 
         symbols {
             bindings = <
-&none  &none      &none     &none         &none             &none                              &none     &none     &none          &none      &none     &none
-&none  &kp EXCL   &kp AT    &kp HASH      &kp DOLLAR        &kp PERCENT                        &kp LPAR  &kp RPAR  &kp BACKSLASH  &kp PIPE   &kp PIPE  &none
-&none  &kp CARET  &kp AMPS  &kp ASTERISK  &kp COLON         &kp SEMI           &none   &none   &kp LBRC  &kp RBRC  &kp INT_YEN    &kp GRAVE  &trans    &none
-&none  &kp TILDE  &kp PLUS  &kp UNDER     &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES  &trans  &trans  &kp LBKT  &kp RBKT  &trans         &trans     &trans    &none
-&none  &trans     &trans    &trans        &trans            &trans             &trans  &trans  &trans    &none     &none          &trans     &trans    &none
+&none  &none      &none     &none         &none             &none                              &none     &none     &none      &none          &none   &none
+&none  &kp EXCL   &kp AT    &kp HASH      &kp DOLLAR        &kp PERCENT                        &kp LPAR  &kp RPAR  &kp PIPE   &kp BACKSLASH  &trans  &none
+&none  &kp CARET  &kp AMPS  &kp ASTERISK  &kp BACKSLASH     &kp COLON          &none   &none   &kp LBRC  &kp RBRC  &kp GRAVE  &trans         &trans  &none
+&none  &kp TILDE  &kp PLUS  &kp UNDER     &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES  &trans  &trans  &kp LBKT  &kp RBKT  &trans     &trans         &trans  &none
+&none  &trans     &trans    &trans        &trans            &trans             &trans  &trans  &trans    &none     &none      &trans         &trans  &none
             >;
         };
 
